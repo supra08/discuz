@@ -1,0 +1,97 @@
+*
+{
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body{
+  margin:1vh 1vw;
+  background: rgb(220, 230, 247);
+}
+
+.navbar
+{
+ display: flex;
+ flex-direction: row;
+ background: rgb(53, 76, 112);
+}
+
+.navbar a
+{
+  color: white;
+}
+
+.btn
+{
+  background-color: orange;
+  border-radius: 0;
+}
+ .btn:hover
+ {
+   background: rgb(239, 26, 7);
+ }
+.link-box
+{
+  margin: 1vh 1vw;
+  background: white;
+  padding: 3px;
+  height: 20vh;
+  width: 60vw;
+}
+.link-box-head
+{
+  color: rgb(33, 43, 73);
+  padding-left: 1vw;
+}
+.comment{
+  height: 50vh;
+}
+.comment-box
+{
+  background: rgb(201, 204, 211);
+}
+.create-btn h4
+{
+  color: green;
+  font-size: 2.3em;
+  font-weight: bold;
+}
+.username, .navbartabs
+{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.profile-box
+{
+  width:50vw;
+  height:60vh;
+  margin-left:25vw;
+  background: white;
+  padding: 3vw 3vh;
+}
+
+.profile-box h1
+{
+  text-align: center;
+}
+.tag-box
+{
+  background: rgb(210, 215, 221);
+}
+.form-box
+{
+  background: white;
+}
+.tabs{
+    height:8vh;
+    width:16vw;
+    margin-left: 2vw;
+}
+.tabs a{
+  background-color: green;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  margin: 1vh;
+}

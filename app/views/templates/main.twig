@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+</head>
+<body>
+
+  <div class="fluid">
+    <div class="row navbar">
+      <div class="col-sm-7 offset-1 title">
+        <h2>diskuz</h2>
+      </div>
+      <div class="col-sm-1 create-btn" id="create">
+        <h4>+</h4>
+      </div>
+      <div class="col-sm-1 username">
+        <a href="profile/{{ username }}">{{ username }}</a>
+      </div>
+      <div class="col-sm-1 btn">
+        <a href="logout">Logout</a>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="tabs">
+    <a href="/newlinks">New Links</a>
+    <a href="/toplinks">Top Links</a>
+  </div>
+
+  <form method="POST" id="linkform" style="display:block;">
+    <input name="title" type="text" placeholder="Title"></br>
+    <input name="url" type="text" placeholder="URL"></br>
+    <input type="text" name="tags" placeholder="Tags"></br>
+    <input type="submit" value="Submit Link">
+  </form>
+<br>
+  <h3 class="link-box-head">Trending Links</h3>
+  {% for link in links %}
+  <div class="link-box"><h6><a href="{{ link.url }}">{{ link.title }}</a>&nbsp;&nbsp;&nbsp; | <a href="/profile/{{ link.username }}">@{{ link.username }}</a> | {{ link.timeposted }}</h6>
+    <p><a href="link/{{ link.id }}/time">Comments</a></p>
+    <a href="upvote/{{ link.id }}/{{ link.username }}">Upvote+1</a><br>
+    <!-- <a href="follow/{{ link.username }}">Follow</a><br> -->
+  {% for tag in link.tags %}
+    <a href="/tag/{{ tag.tag }}" class='tag-box'>#{{ tag.tag }}</a>
+  {% endfor %}
+  </div>
+  {% endfor %}
+
+  <script type="text/javascript">
+  document.getElementById('linkform').setAttribute('style', 'display:none;  ');
+  document.getElementById('create').addEventListener('click', function(){
+    console.log('its clicked');
+
+    if(document.getElementById('linkform').style.display == 'none')
+    {
+      console.log('its none');
+      document.getElementById('linkform').setAttribute('style', 'display:block;');
+    }
+    else
+    {
+      document.getElementById('linkform').setAttribute('style', 'display:none;');
+    }
+  });
+</script>
+
+</body>
+</html>
